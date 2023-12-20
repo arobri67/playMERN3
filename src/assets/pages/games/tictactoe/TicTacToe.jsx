@@ -2,11 +2,6 @@ import { useState, useEffect } from "react";
 import "./TicTacToe.css";
 
 const TicTacToe = () => {
-  //----------------------------------------------------------------
-  //CODE TOO LONG
-  // use the useEffect of the sudoku to generate the board
-  //----------------------------------------------------------------
-
   const gridTemplate = [
     [null, null, null],
     [null, null, null],
