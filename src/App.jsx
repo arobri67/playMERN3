@@ -6,7 +6,7 @@ import Unprotected from "./assets/layouts/Unprotected";
 import Protected from "./assets/layouts/Protected";
 import TicTacToe from "./assets/pages/games/tictactoe/TicTacToe";
 import WordGuess from "./assets/pages/games/wordguess/WordGuess";
-import Sudoku from "./assets/pages/games/sudoku/sudoku";
+import Sudoku from "./assets/pages/games/sudoku/Sudoku";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -29,17 +29,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <footer className="container">
-        <ul>
-          <li>
-            <span>/play</span>
-          </li>
-          <li>Made by Arnaud</li>
-          <li>
-            <a href="">View on GitHub</a>
-          </li>
-        </ul>
-      </footer> */
-}
