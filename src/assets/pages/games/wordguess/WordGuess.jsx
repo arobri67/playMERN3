@@ -113,34 +113,43 @@ const WordGuess = () => {
               </div>
             </div>
           </article>
-          <article className="wg-word-container">
-            {gameState === "game over" ? (
-              <>
-                <p className="endgame-newgame-msg">The word to find was:</p>
+          {isPlaying ? (
+            <article className="wg-word-container">
+              {gameState === "game over" ? (
+                <>
+                  <p className="endgame-newgame-msg">The word to find was:</p>
+                  <ul>
+                    {wordArray.map((item, index) => (
+                      <li key={index}>
+                        <div>{item.letter}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
                 <ul>
                   {wordArray.map((item, index) => (
                     <li key={index}>
-                      <div>{item.letter}</div>
+                      {item.isFound ? <div>{item.letter}</div> : <div></div>}
                     </li>
                   ))}
                 </ul>
-              </>
-            ) : (
-              <ul>
-                {wordArray.map((item, index) => (
-                  <li key={index}>
-                    {item.isFound ? <div>{item.letter}</div> : <div></div>}
-                  </li>
-                ))}
-              </ul>
-            )}
+              )}
 
-            {gameState === "win" || gameState === "game over" ? (
-              <p className="endgame-newgame-msg">
-                Press <span>/play</span> for a new game
+              {gameState === "win" || gameState === "game over" ? (
+                <p className="endgame-newgame-msg">
+                  Press <span>/play</span> for a new game!
+                </p>
+              ) : null}
+            </article>
+          ) : (
+            <article className="wg-word-message">
+              <p>
+                Hit <span>/play</span> to start a new game!
               </p>
-            ) : null}
-          </article>
+            </article>
+          )}
+
           <article className="wg-error-container">
             <div className="wg-error-body">
               {gameState === "game over" ? (

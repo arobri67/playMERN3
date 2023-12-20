@@ -3,17 +3,19 @@ import { useState } from "react";
 import useAuth from "../../hook/useAuth";
 
 const LogIn = () => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({ username: "", password: "" });
   const { login } = useAuth();
+
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login(user);
   };
+
   return (
     <main>
       <section className="login container">
@@ -25,11 +27,11 @@ const LogIn = () => {
             <form onSubmit={handleSubmit} className="inputs" noValidate>
               <label htmlFor="username"></label>
               <input
-                type="username"
+                type="text"
                 name="username"
                 id="username"
                 required
-                value={user?.name} //why this?
+                value={user.username}
                 placeholder="Username"
                 onChange={handleInput}
               />
@@ -39,10 +41,13 @@ const LogIn = () => {
                 name="password"
                 id="password"
                 required
+                value={user.password}
                 placeholder="Password"
                 onChange={handleInput}
               />
-              <button className="login-btn">Log In</button>
+              <button className="login-btn" type="submit">
+                Log In
+              </button>
             </form>
           </div>
         </article>

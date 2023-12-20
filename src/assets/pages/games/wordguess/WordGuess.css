@@ -27,7 +27,7 @@
   justify-content: center;
   border: 1px solid var(--secondary-color);
   background-color: var(--primary-transparent-color);
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 2em;
   width: 75%;
 }
@@ -73,7 +73,7 @@
 .wg-word-container {
   border: 1px solid var(--secondary-color);
   background-color: var(--primary-transparent-color);
-  border-radius: 6px;
+  border-radius: 20px;
   width: 55%;
   margin-top: auto;
   margin-bottom: auto;
@@ -97,10 +97,11 @@
   user-select: none;
 }
 /* WRONG LETTER */
-.wg-wrong-container {
+.wg-wrong-container,
+.wg-word-message {
   background-color: var(--primary-transparent-color);
   border: 1px solid var(--secondary-color);
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 1em;
   margin-top: auto;
   margin-bottom: auto;
@@ -135,7 +136,16 @@
   text-align: center;
   user-select: none;
 }
-
+.wg-word-message {
+  padding: 3em;
+}
+.wg-word-message > p {
+  font-size: 3rem;
+}
+.wg-word-message > p > span {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
 .play-wg-btn {
   font-size: 2rem;
   font-weight: 700;
@@ -156,7 +166,7 @@
 .wg-error-container {
   background-color: var(--primary-transparent-color);
   border: 1px solid var(--secondary-color);
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 1em;
 
   margin-top: auto;

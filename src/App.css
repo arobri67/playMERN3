@@ -33,10 +33,17 @@ header > nav {
   border: 2.5px solid var(--secondary-color);
   border-radius: 15px;
   padding: 0.25em 1em;
+  transition: all 0.5s ease;
 }
 .nav-link:visited {
   color: var(--secondary-color);
 }
+
+.nav-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+}
+
 /* HOME */
 main {
   position: relative;
@@ -83,5 +90,3 @@ footer > ul > li a:visited {
 footer > ul > li a:hover {
   text-decoration: underline;
 }
-
-/* LOGIN PAGE STYLES */

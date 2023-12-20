@@ -171,9 +171,18 @@
   background-color: var(--primary-color);
   padding: 0.25em 1em;
   cursor: pointer;
-  margin-top: auto;
-  margin-bottom: 0;
+  transition: all 0.5s ease;
 }
+
+.btn-action:visited {
+  color: var(--secondary-color);
+}
+
+.btn-action:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+}
+
 /* LEFT SIDE */
 .sudoku-play-container {
   border: 1px solid var(--secondary-color);

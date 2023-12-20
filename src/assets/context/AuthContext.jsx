@@ -8,9 +8,17 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useLocalStorage("user", null);
   const navigate = useNavigate();
 
-  const login = async (data) => {
-    setUser(data);
-    navigate("/games", { replace: true });
+  const login = async (credentials) => {
+    if (
+      credentials.username === "arnaud" &&
+      credentials.password === "rtcMERN3"
+    ) {
+      setUser({ username: credentials.username });
+      navigate("/games", { replace: true });
+    } else {
+      // Handle incorrect credentials
+      alert("Invalid username or password");
+    }
   };
 
   const logout = () => {
