@@ -1,0 +1,87 @@
+#root {
+  height: 100svh;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+/* HEADER STYLES */
+header {
+  padding: 1em 0;
+  height: 10svh;
+}
+header > nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.logo > span {
+  color: var(--secondary-color);
+}
+.action-btn {
+  display: flex;
+  gap: 3em;
+}
+.nav-link {
+  font-size: 2.15rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  border: 2.5px solid var(--secondary-color);
+  border-radius: 15px;
+  padding: 0.25em 1em;
+}
+.nav-link:visited {
+  color: var(--secondary-color);
+}
+/* HOME */
+main {
+  position: relative;
+  height: 80svh;
+  width: 100svw;
+}
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/hero4.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(3px);
+  z-index: -1;
+}
+
+/* FOOTER STYLES */
+footer {
+  padding: 2em 0;
+  height: 10svh;
+}
+footer > ul {
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+}
+footer > ul > li {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+footer > ul > li > span {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+footer > ul > li a:active,
+footer > ul > li a:visited {
+  color: var(--tertiary-color);
+}
+footer > ul > li a:hover {
+  text-decoration: underline;
+}
+
+/* LOGIN PAGE STYLES */

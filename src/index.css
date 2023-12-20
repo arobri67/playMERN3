@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39&family=Playfair+Display&family=Poppins:wght@300;400;500;700;900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  --primary-color: #0d0d0d;
+  --primary-transparent-color: rgba(13, 13, 13, 0.8);
+  --secondary-color: #f27127;
+  --tertiary-color: #ffffff;
+  --quaternary-color: #0bd9d9;
+  --quinary-color: #f26dcf;
+  -webkit-font-smoothing: antialiased;
+}
+html {
+  font-family: "Poppins";
+  font-size: 62.5%;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  font-weight: 300;
+  height: 100svh;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: var(--tertiary-color);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}

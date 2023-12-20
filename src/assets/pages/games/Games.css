@@ -1,0 +1,43 @@
+.games {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10em;
+}
+
+.game-card {
+  height: 400px;
+  width: 300px;
+  padding: 2em 5em;
+  border-radius: 15px;
+  border: 1px solid var(--secondary-color);
+  background-image: url(/hero4.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.game-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.game-body > h2 {
+  font-size: 3rem;
+}
+.play-container {
+  display: flex;
+  margin-top: auto;
+}
+.play-btn {
+  font-size: 2.5rem;
+  font-weight: 700;
+  border: 2px solid var(--secondary-color);
+  border-radius: 7px;
+  background-color: var(--primary-color);
+  padding: 0.25em 1em;
+}

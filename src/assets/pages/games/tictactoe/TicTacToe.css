@@ -1,0 +1,124 @@
+.tictactoe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  gap: 10em;
+}
+/* BOARD CENTER */
+.tictactoe-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+  background-color: var(--primary-transparent-color);
+}
+.tictactoe-row {
+  display: flex;
+  flex-direction: row;
+}
+.tictactoe-cell {
+  height: 15svh;
+  width: 15svh;
+  max-height: 100px;
+  max-width: 100px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--tertiary-color);
+  cursor: pointer;
+}
+.tictactoe-cell.hoverable:hover {
+  background-color: var(--secondary-color);
+}
+.player1-color,
+.player2-color {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.player1-color {
+  color: var(--quaternary-color);
+  -webkit-text-stroke: 2px black;
+}
+.player2-color {
+  color: var(--quinary-color);
+  -webkit-text-stroke: 2px black;
+}
+
+/* PLAY RESET PLAYER LEFT */
+
+.tictactoe-info-container {
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+  padding: 3em;
+  background-color: var(--primary-transparent-color);
+}
+.info-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3em;
+  height: 45svh;
+  max-height: 300px;
+}
+.info-body > h2 {
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+.player-score {
+  font-size: 2rem;
+}
+.player1 {
+  color: var(--quaternary-color);
+}
+.player2 {
+  color: var(--quinary-color);
+}
+.play-tic-btn {
+  font-size: 2rem;
+  font-weight: 700;
+  border: 2px solid var(--secondary-color);
+  border-radius: 7px;
+  background-color: var(--primary-color);
+  padding: 0.25em 1em;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+.play-tic-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+/* TURN */
+.tictactoe-turn-container {
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+  padding: 1em;
+  width: 250px;
+  background-color: var(--primary-transparent-color);
+}
+.turn-message {
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5em;
+}
+.player1-turn-color {
+  color: var(--quaternary-color);
+  font-weight: 500;
+}
+.player2-turn-color {
+  color: var(--quinary-color);
+  font-weight: 500;
+}
+.turn-play {
+  color: var(--secondary-color);
+  font-weight: 400;
+}
