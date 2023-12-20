@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./assets/pages/home/home";
+import Home from "./assets/pages/home/Home";
 import LogIn from "./assets/pages/login/LogIn";
 import Games from "./assets/pages/games/Games";
 import Unprotected from "./assets/layouts/Unprotected";
