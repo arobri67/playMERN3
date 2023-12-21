@@ -1,0 +1,15 @@
+.snake {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.playground {
+  background-color: var(--primary-color);
+  width: 50svw;
+  height: 70svh;
+  border: 1px solid var(--secondary-color);
+  margin-top: auto;
+  margin-bottom: auto;
+}
