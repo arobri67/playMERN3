@@ -2,6 +2,8 @@
 
 Game Hub is a web application that provides a collection of simple and enjoyable games. This project is built using React and showcases various games, each with its unique features.
 
+This is a project that was made during the RockTheCode bootcamp (2023)
+
 ## Table of Contents
 
 - [Features](#features)
