@@ -1,8 +1,46 @@
-# React + Vite
+# Game Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Game Hub is a web application that provides a collection of simple and enjoyable games. This project is built using React and showcases various games, each with its unique features.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Games](#games)
+- [Demo](#demo)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- A collection of fun and engaging games.
+- Responsive design for a seamless experience on different devices.
+- Easy navigation and user-friendly interface.
+
+## Games
+
+1. **Tic-Tac-Toe**: Classic Tic-Tac-Toe game for two players.
+2. **Word Guess**: Guess the hidden word by selecting letters.
+3. **Sudoku**: Classic Sudoku puzzle for puzzle enthusiasts.
+
+## Demo
+
+You see a demo of this app in the link below:
+https://fanciful-yeot-6da997.netlify.app/
+
+Please use the username: arnaud and passwrod rtcMERN3.
+
+## Technologies Used
+
+- React
+- HTML
+- CSS
+- JavaScript
+
+## Contributing
+
+We welcome contributions! If you'd like to contribute to the project please contact me
+
+## License
+
+This project is licensed under the MIT Licence - see the LICENSE.txt file for details.
