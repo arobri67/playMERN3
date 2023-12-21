@@ -88,11 +88,11 @@
   cursor: pointer;
   margin-top: auto;
   margin-bottom: 0;
+  transition: all 0.3s ease-in-out;
 }
 .play-tic-btn:hover {
   background-color: var(--secondary-color);
   color: var(--tertiary-color);
-  transition: all 0.3s ease-in-out;
 }
 
 /* TURN */

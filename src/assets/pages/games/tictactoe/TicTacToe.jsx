@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import TttLeftPanel from "../../../components/TttLeftPanel";
+import TttMiddlePanel from "../../../components/TttMiddlePanel";
+import TttRightPanel from "../../../components/TttRightPanel";
 import "./TicTacToe.css";
 
 const TicTacToe = () => {
@@ -68,7 +71,7 @@ const TicTacToe = () => {
     const diagonal2 = array.map((row, i) => row[array.length - 1 - i]);
     return checkLine(diagonal1) || checkLine(diagonal2);
   };
-  //function to handle a full grid with no winner, Check if cell of every row are no null
+  //function to handle a full grid with no winner, Check if cell of every row are not null
   const isGridFull = (array) => {
     return array.every((row) => row.every((cell) => cell !== null));
   };
@@ -101,84 +104,25 @@ const TicTacToe = () => {
   return (
     <main>
       <section className="tictactoe container">
-        <article className="tictactoe-info-container">
-          <div className="info-body">
-            <h2>Tic Tac Toc</h2>
-            <div className="player-score">
-              <span className="player1">Player 1</span>: {score.player1}
-            </div>
-            <div className="player-score">
-              <span className="player2">Player 2</span>: {score.player2}
-            </div>
-            <div
-              role="button"
-              className="play-tic-btn"
-              onClick={() => handlePlay()}
-            >
-              /play
-            </div>
-          </div>
-        </article>
-        <article className="tictactoe-board">
-          {grid.map((row, rowIndex) => (
-            <div key={rowIndex} className="tictactoe-row">
-              {row.map((cell, colIndex) => (
-                <div
-                  key={`${rowIndex}-${colIndex}`}
-                  role="button"
-                  className={`tictactoe-cell ${
-                    cell === player1 ? "player1-color" : ""
-                  } ${cell === player2 ? "player2-color" : ""} ${
-                    isPlaying ? "hoverable" : ""
-                  }`}
-                  onClick={() => handleBtn(rowIndex, colIndex, cell)}
-                >
-                  {cell}
-                </div>
-              ))}
-            </div>
-          ))}
-        </article>
-        <article className="tictactoe-turn-container">
-          <div className="turn-body">
-            {endGame ? (
-              <div className="turn-message">
-                <span
-                  className={`${
-                    endGame == "Player 1 wins!!" ? "player1-turn-color" : ""
-                  } ${
-                    endGame == "Player 2 wins!!" ? "player2-turn-color" : ""
-                  }`}
-                >
-                  {endGame}
-                </span>
-                <span>
-                  (Click <span className="turn-play">/play</span> to start a new
-                  game)
-                </span>
-              </div>
-            ) : turn === player1 && isPlaying ? (
-              <div className="turn-message">
-                <p>
-                  <span className="player1-turn-color">Player 1's</span> turn!
-                </p>
-              </div>
-            ) : turn === player2 && isPlaying ? (
-              <div className="turn-message">
-                <p>
-                  <span className="player2-turn-color">Player 2's</span> turn!
-                </p>
-              </div>
-            ) : (
-              <div className="turn-message">
-                <p>
-                  Click <span className="turn-play">/play</span> to start a new
-                  game
-                </p>
-              </div>
-            )}
-          </div>
-        </article>
+        <TttLeftPanel
+          player1={score.player1}
+          player2={score.player2}
+          handlePlay={handlePlay}
+        />
+        <TttMiddlePanel
+          isPlaying={isPlaying}
+          grid={grid}
+          player1={player1}
+          player2={player2}
+          handleBtn={handleBtn}
+        />
+        <TttRightPanel
+          endGame={endGame}
+          turn={turn}
+          isPlaying={isPlaying}
+          player1={player1}
+          player2={player2}
+        />
       </section>
     </main>
   );

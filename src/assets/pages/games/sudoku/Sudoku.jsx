@@ -1,5 +1,8 @@
 import { makepuzzle, solvepuzzle } from "sudoku";
 import { useState, useEffect } from "react";
+import SdkLeftPanel from "../../../components/SdkLeftPanel";
+import SdkMiddlePanel from "../../../components/SdkMiddlePanel";
+import SdkRightPanel from "../../../components/SdkRightPanel";
 import "./Sudoku.css";
 
 const Sudoku = () => {
@@ -13,19 +16,6 @@ const Sudoku = () => {
   const [isHint, setHint] = useState(false);
   const [isWin, setWin] = useState(null);
 
-  const mockSudoku = [
-    6, 7, 5, 1, 8, 4, 0, 3, 2, 3, 4, 2, 7, 6, 0, 5, 1, 8, 8, 1, 0, 7, 2, 5, 7,
-    4, 6, 9, 5, 3, 6, 0, 1, 4, 2, 4, 2, 0, 6, 4, 3, 8, 1, 5, 7, 1, 8, 4, 5, 7,
-    2, 3, 6, 0, 0, 6, 7, 2, 1, 3, 4, 8, 5, 4, 2, 1, 8, 5, 2, 6, 0, 3, 5, 3, 8,
-    0, 4, 5, 2, 7, 1,
-  ];
-
-  const mockSudokuSolved = [
-    6, 7, 5, 1, 8, 4, 0, 3, 2, 3, 4, 2, 7, 6, 0, 5, 1, 8, 8, 1, 0, 3, 2, 5, 7,
-    4, 6, 7, 5, 3, 6, 0, 1, 8, 2, 4, 2, 0, 6, 4, 3, 8, 1, 5, 7, 1, 8, 4, 5, 7,
-    2, 3, 6, 0, 0, 6, 7, 2, 1, 3, 4, 8, 5, 4, 2, 1, 8, 5, 7, 6, 0, 3, 5, 3, 8,
-    0, 4, 6, 2, 7, 1,
-  ];
   const handleHint = () => {
     setHint(true);
     const solvedArrayString = solvepuzzle(sudokuBoardOriginal);
@@ -66,7 +56,6 @@ const Sudoku = () => {
   const handleCheck = () => {
     const arrayPlayerString = sudokuBoard.toString();
     const solvedArrayString = sudokuBoardSolved.toString();
-    //const solvedArrayString = mockSudokuSolved.toString();
     console.log(arrayPlayerString === solvedArrayString);
     setWin(arrayPlayerString === solvedArrayString);
   };
@@ -74,7 +63,6 @@ const Sudoku = () => {
   useEffect(() => {
     if (isPlaying) {
       const newBoard = makepuzzle();
-      //const newBoard = [...mockSudokuSolved];
       const matrix = [];
       setSudokuBoard(newBoard);
       setSudokuBoardOriginal(newBoard);
@@ -95,133 +83,27 @@ const Sudoku = () => {
   return (
     <main>
       <section className="sudoku container">
-        <article className="sudoku-play-container">
-          <div className="sudoku-play-body">
-            <h2>Sudoku</h2>
-            {!isPlaying ? (
-              <div
-                className="btn-action"
-                role="button"
-                onClick={() => handlePlay()}
-              >
-                /play
-              </div>
-            ) : null}
-
-            {isPlaying ? (
-              <div
-                className="btn-action"
-                role="button"
-                onClick={() => handleNewGame()}
-              >
-                New Game
-              </div>
-            ) : null}
-          </div>
-        </article>
-        <article className="sudoku-board">
-          {!isPlaying ? (
-            <p>
-              Press <span>/play</span> to start a Sudoku
-            </p>
-          ) : null}
-          {sudokuMatrix.map((row, rowIndex) => (
-            <div key={rowIndex} className="sudoku-row">
-              {row.map((cell, colIndex) => (
-                <div
-                  key={`${rowIndex}-${colIndex}`}
-                  className={`sudoku-cell row${rowIndex}-col${colIndex} ${
-                    cell !== null &&
-                    cell !== sudokuBoardOriginal[rowIndex * 9 + colIndex]
-                      ? "user-added-number"
-                      : ""
-                  } `}
-                  role="button"
-                  onClick={() => handleCell(rowIndex, colIndex)}
-                >
-                  {cell === null ||
-                  (cell !== null &&
-                    cell !== sudokuBoardOriginal[rowIndex * 9 + colIndex]) ? (
-                    selectedCell &&
-                    selectedCell.rowIndex === rowIndex &&
-                    selectedCell.colIndex === colIndex ? (
-                      <select onChange={handleNumber}>
-                        <option value="-">-</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                      </select>
-                    ) : (
-                      cell
-                    )
-                  ) : (
-                    cell
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
-        </article>
-        {isPlaying ? (
-          <article className="sudoku-hint-check-container">
-            <div className="sudoku-hint-check-body">
-              {sudokuBoard.some((number) => number === null) && isPlaying ? (
-                <>
-                  <p>
-                    Hit <span>Hint</span> to get the solution of this Sudoku
-                  </p>
-                  <div
-                    className="btn-action"
-                    role="button"
-                    onClick={() => handleHint()}
-                  >
-                    Hint
-                  </div>
-                </>
-              ) : isHint ? (
-                <p>
-                  Hit <span>New Game</span> to start a new Sudoku
-                </p>
-              ) : null}
-
-              {sudokuBoard.every((number) => number !== null) &&
-              isPlaying &&
-              isHint === false ? (
-                <>
-                  {isWin === null ? (
-                    <p>
-                      Great! You completed the grid. Hit <span>Check</span> to
-                      see if you win!
-                    </p>
-                  ) : (
-                    <p>
-                      {isWin
-                        ? "Congratulations, you win!!"
-                        : "Sorry, you did not find the solution. Keep trying or start a new Sudoku"}
-                    </p>
-                  )}
-
-                  <div
-                    className="btn-action"
-                    role="button"
-                    onClick={handleCheck}
-                  >
-                    Check Grid
-                  </div>
-                </>
-              ) : null}
-            </div>
-          </article>
-        ) : (
-          <article></article>
-        )}
+        <SdkLeftPanel
+          isPlaying={isPlaying}
+          handlePlay={handlePlay}
+          handleNewGame={handleNewGame}
+        />
+        <SdkMiddlePanel
+          isPlaying={isPlaying}
+          sudokuMatrix={sudokuMatrix}
+          sudokuBoardOriginal={sudokuBoardOriginal}
+          handleCell={handleCell}
+          selectedCell={selectedCell}
+          handleNumber={handleNumber}
+        />
+        <SdkRightPanel
+          isPlaying={isPlaying}
+          sudokuBoard={sudokuBoard}
+          handleHint={handleHint}
+          isHint={isHint}
+          isWin={isWin}
+          handleCheck={handleCheck}
+        />
       </section>
     </main>
   );

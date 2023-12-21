@@ -69,8 +69,8 @@
   justify-content: space-between;
   height: 40%;
 }
-/* WORD */
-.wg-word-container {
+/* MIDDLE PANEL */
+.wg-middle-container {
   border: 1px solid var(--secondary-color);
   background-color: var(--primary-transparent-color);
   border-radius: 20px;
@@ -83,12 +83,12 @@
   align-items: center;
   padding: 2em;
 }
-.wg-word-container > ul {
+.wg-middle-container > ul {
   display: flex;
   gap: 2em;
   padding: 2em;
 }
-.wg-word-container > ul > li {
+.wg-middle-container > ul > li {
   border-bottom: 1px solid var(--secondary-color);
   width: 1em;
   text-align: center;
@@ -96,9 +96,21 @@
   color: var(--ternary-color);
   user-select: none;
 }
-/* WRONG LETTER */
-.wg-wrong-container,
-.wg-word-message {
+
+.wg-middle-message {
+  padding: 3em;
+}
+.wg-middle-message > p {
+  font-size: 3rem;
+}
+.wg-middle-message > p > span {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* LEFT PANEL */
+.wg-left-container,
+.wg-middle-message {
   background-color: var(--primary-transparent-color);
   border: 1px solid var(--secondary-color);
   border-radius: 20px;
@@ -106,21 +118,21 @@
   margin-top: auto;
   margin-bottom: auto;
 }
-.wg-wrong-body {
+.wg-left-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-height: 100%;
 }
-.wg-wrong-body > h2 {
+.wg-left-body > h2 {
   font-size: 3rem;
   letter-spacing: 3px;
   padding-bottom: 0.2em;
 }
-.wg-wrong-body > h3 {
+.wg-left-body > h3 {
   font-size: 2rem;
 }
-.wg-wrong-body > ul {
+.wg-left-body > ul {
   display: flex;
   gap: 0.5em;
   font-size: 3rem;
@@ -129,23 +141,14 @@
 
   margin: 0.5em;
 }
-.wg-wrong-body > ul > li {
+.wg-left-body > ul > li {
   border: 1px solid var(--secondary-color);
   border-radius: 3px;
   padding: 0.2em;
   text-align: center;
   user-select: none;
 }
-.wg-word-message {
-  padding: 3em;
-}
-.wg-word-message > p {
-  font-size: 3rem;
-}
-.wg-word-message > p > span {
-  color: var(--secondary-color);
-  font-weight: 600;
-}
+
 .play-wg-btn {
   font-size: 2rem;
   font-weight: 700;
@@ -162,8 +165,8 @@
   color: var(--tertiary-color);
   transition: all 0.3s ease-in-out;
 }
-/* ERROR and HELP */
-.wg-error-container {
+/* RIGHT PANEL */
+.wg-right-container {
   background-color: var(--primary-transparent-color);
   border: 1px solid var(--secondary-color);
   border-radius: 20px;
@@ -172,7 +175,7 @@
   margin-top: auto;
   margin-bottom: auto;
 }
-.wg-error-body {
+.wg-right-body {
   display: flex;
   flex-direction: column;
   align-items: center;

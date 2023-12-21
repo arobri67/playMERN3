@@ -7,7 +7,7 @@ const FooterBar = () => {
         </li>
         <li>Made by Arnaud</li>
         <li>
-          <a href="">View on GitHub</a>
+          <a href="https://github.com/arobri67/playMERN3">View on GitHub</a>
         </li>
       </ul>
     </footer>

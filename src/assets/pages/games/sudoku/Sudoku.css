@@ -142,24 +142,24 @@
   border-bottom: 3px solid var(--secondary-color);
 }
 /* RIGHT SIDE */
-.sudoku-hint-check-container {
+.sudoku-right-container {
   border: 1px solid var(--secondary-color);
   background-color: var(--primary-transparent-color);
   border-radius: 20px;
   padding: 1em;
   width: 20%;
 }
-.sudoku-hint-check-body {
+.sudoku-right-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
 }
-.sudoku-hint-check-body > p {
+.sudoku-right-body > p {
   font-size: 1.6rem;
   text-align: center;
 }
-.sudoku-hint-check-body > p > span {
+.sudoku-right-body > p > span {
   color: var(--secondary-color);
   font-weight: 500;
 }
@@ -184,28 +184,28 @@
 }
 
 /* LEFT SIDE */
-.sudoku-play-container {
+.sudoku-left-container {
   border: 1px solid var(--secondary-color);
   background-color: var(--primary-transparent-color);
   border-radius: 20px;
   padding: 1em;
   width: 20%;
 }
-.sudoku-play-body {
+.sudoku-left-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
 }
-.sudoku-play-body > h2 {
+.sudoku-left-body > h2 {
   font-size: 3rem;
   letter-spacing: 3px;
 }
-.sudoku-play-body > p {
+.sudoku-left-body > p {
   font-size: 1.6rem;
   text-align: center;
 }
-.sudoku-play-body > p > span {
+.sudoku-left-body > p > span {
   color: var(--secondary-color);
   font-weight: 500;
 }

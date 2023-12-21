@@ -1,14 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
-// import Home from "./assets/pages/home/Home";
-// import LogIn from "./assets/pages/login/LogIn";
-// import Games from "./assets/pages/games/Games";
-// import Unprotected from "./assets/layouts/Unprotected";
-// import Protected from "./assets/layouts/Protected";
-// import TicTacToe from "./assets/pages/games/tictactoe/TicTacToe";
-// import WordGuess from "./assets/pages/games/wordguess/WordGuess";
-// import Sudoku from "./assets/pages/games/sudoku/Sudoku";
 
 const Home = lazy(() => import("./assets/pages/home/Home"));
 const LogIn = lazy(() => import("./assets/pages/login/LogIn"));

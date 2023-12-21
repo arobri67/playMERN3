@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import "./WordGuess.css";
+import WgLeftPanel from "../../../components/WgLeftPanel";
+import WgMidPanel from "../../../components/WgMidPanel";
+import WgRightPanel from "../../../components/WgRightPanel";
+import WgKeyboard from "../../../components/WgKeyboard";
 import wordList from "../../../../DATA/wordList";
+import "./WordGuess.css";
 
 const WordGuess = () => {
-  const alphabet = Array.from({ length: 26 }, (_, index) =>
-    String.fromCharCode(97 + index)
-  );
-
   const [isPlaying, setPlay] = useState(false);
   const [gameState, setGameStat] = useState("off");
   const [word, setWord] = useState("");
@@ -14,6 +14,7 @@ const WordGuess = () => {
   const [selectedLetter, setSelectedLetter] = useState("");
   const [wrongLetter, setWrongLetter] = useState([]);
   const [errorNumber, setErrorNumber] = useState(0);
+  const maxError = 5;
 
   const handlePlay = () => {
     if (gameState !== "playing") {
@@ -76,7 +77,7 @@ const WordGuess = () => {
   useEffect(() => {
     if (wordArray.length !== 0) {
       const isGameWon = wordArray.every((item) => item.isFound === true);
-      const isGameOver = errorNumber === 5;
+      const isGameOver = errorNumber === maxError;
       if (isGameWon === true && isGameOver === false) {
         setGameStat("win");
         setPlay(false);
@@ -91,104 +92,20 @@ const WordGuess = () => {
     <main>
       <section className="wg container">
         <section className="wg-top">
-          <article className="wg-wrong-container">
-            <div className="wg-wrong-body">
-              <h2>Word Guess</h2>
-              {isPlaying ? (
-                <>
-                  <h3>Wrong letters</h3>
-                  <ul>
-                    {wrongLetter.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-              <div
-                role="button"
-                className="play-wg-btn"
-                onClick={() => handlePlay()}
-              >
-                /play
-              </div>
-            </div>
-          </article>
-          {isPlaying ? (
-            <article className="wg-word-container">
-              {gameState === "game over" ? (
-                <>
-                  <p className="endgame-newgame-msg">The word to find was:</p>
-                  <ul>
-                    {wordArray.map((item, index) => (
-                      <li key={index}>
-                        <div>{item.letter}</div>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <ul>
-                  {wordArray.map((item, index) => (
-                    <li key={index}>
-                      {item.isFound ? <div>{item.letter}</div> : <div></div>}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {gameState === "win" || gameState === "game over" ? (
-                <p className="endgame-newgame-msg">
-                  Press <span>/play</span> for a new game!
-                </p>
-              ) : null}
-            </article>
-          ) : (
-            <article className="wg-word-message">
-              <p>
-                Hit <span>/play</span> to start a new game!
-              </p>
-            </article>
-          )}
-
-          <article className="wg-error-container">
-            <div className="wg-error-body">
-              {gameState === "game over" ? (
-                <p className="endgame-msg">You did not guess the word...</p>
-              ) : null}
-              {gameState === "win" ? (
-                <p className="endgame-msg">
-                  Congratulation, you guess the word!!
-                </p>
-              ) : null}
-              <p className="error-msg">
-                You have {wrongLetter.length} error
-                {wrongLetter.length > 1 ? "s" : null} (max. 5)
-              </p>
-            </div>
-          </article>
+          <WgLeftPanel
+            isPlaying={isPlaying}
+            wrongLetter={wrongLetter}
+            handlePlay={handlePlay}
+          />
+          <WgMidPanel
+            isPlaying={isPlaying}
+            gameState={gameState}
+            wordArray={wordArray}
+          />
+          <WgRightPanel gameState={gameState} length={wrongLetter.length} />
         </section>
         <section className="wg-bottom">
-          <article className="keyboard-container">
-            <div className="keyboard-body">
-              <ul>
-                {alphabet.map((item, index) => (
-                  <li key={index}>
-                    {wrongLetter.some((letter) => letter === item) ? (
-                      <div className="btn-wrong-letter"></div>
-                    ) : (
-                      <div
-                        className="btn-good-letter"
-                        role="button"
-                        onClick={handleKeys}
-                      >
-                        {item}
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
+          <WgKeyboard wrongLetter={wrongLetter} handleKeys={handleKeys} />
         </section>
       </section>
     </main>
