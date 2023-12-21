@@ -14,7 +14,6 @@ const WordGuess = lazy(() =>
   import("./assets/pages/games/wordguess/WordGuess")
 );
 const Sudoku = lazy(() => import("./assets/pages/games/sudoku/Sudoku"));
-const Snake = lazy(() => import("./assets/pages/games/snake/Snake"));
 
 function App() {
   return (
@@ -80,14 +79,6 @@ function App() {
             element={
               <Suspense>
                 <Sudoku />
-              </Suspense>
-            }
-          ></Route>
-          <Route
-            path="/snake"
-            element={
-              <Suspense>
-                <Snake />
               </Suspense>
             }
           ></Route>
