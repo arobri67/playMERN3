@@ -1,7 +1,6 @@
 /* HOME STYLES */
 .home {
   height: 100%;
-  position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -24,4 +23,9 @@
 .welcome-msg > p > span,
 .welcome-msg > h1 > span {
   color: var(--secondary-color);
+}
+@media (max-width: 375px) {
+  .welcome-msg > h1 {
+    font-size: 4rem;
+  }
 }

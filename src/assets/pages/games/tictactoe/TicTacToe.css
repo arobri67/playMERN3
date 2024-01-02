@@ -1,5 +1,6 @@
 .tictactoe {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   height: 100%;
@@ -121,4 +122,20 @@
 .turn-play {
   color: var(--secondary-color);
   font-weight: 400;
+}
+
+@media (max-width: 1118px) {
+  .tictactoe {
+    gap: 5em;
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .tictactoe-cell {
+    max-width: 75px;
+    max-height: 75px;
+  }
+  .info-body {
+    max-height: 250px;
+  }
 }

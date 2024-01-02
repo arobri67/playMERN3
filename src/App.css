@@ -1,6 +1,3 @@
-#root {
-  height: 100svh;
-}
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -12,6 +9,7 @@ header {
 }
 header > nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -24,6 +22,7 @@ header > nav {
 }
 .action-btn {
   display: flex;
+  flex-wrap: wrap;
   gap: 3em;
 }
 .nav-link {
@@ -46,9 +45,10 @@ header > nav {
 
 /* HOME */
 main {
+  display: flex;
+  align-items: center;
   position: relative;
-  height: 80svh;
-  width: 100svw;
+  min-height: 80svh;
 }
 main::before {
   content: "";
@@ -72,6 +72,7 @@ footer {
 }
 footer > ul {
   display: flex;
+  flex-wrap: wrap;
   gap: 5em;
   justify-content: center;
 }
@@ -89,4 +90,38 @@ footer > ul > li a:visited {
 }
 footer > ul > li a:hover {
   text-decoration: underline;
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 100%;
+    padding: 2em;
+  }
+}
+@media (max-width: 768px) {
+  header > nav {
+    justify-content: center;
+    gap: 2em;
+  }
+  .logo {
+    font-size: 3.5rem;
+  }
+}
+header {
+  height: 12svh;
+}
+
+footer > ul {
+  gap: 1.5em;
+}
+
+@media (max-width: 320px) {
+  .logo {
+    font-size: 3rem;
+  }
+  .action-btn {
+    gap: 1em;
+  }
+  footer > ul > li {
+    font-size: 2rem;
+  }
 }

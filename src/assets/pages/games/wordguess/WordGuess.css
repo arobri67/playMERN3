@@ -66,6 +66,7 @@
 /* TOP */
 .wg-top {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   height: 40%;
 }
@@ -74,7 +75,7 @@
   border: 1px solid var(--secondary-color);
   background-color: var(--primary-transparent-color);
   border-radius: 20px;
-  width: 55%;
+  /* width: 55%; */
   margin-top: auto;
   margin-bottom: auto;
   display: flex;
@@ -171,7 +172,6 @@
   border: 1px solid var(--secondary-color);
   border-radius: 20px;
   padding: 1em;
-
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -199,4 +199,26 @@
 .endgame-newgame-msg > span {
   color: var(--secondary-color);
   font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .wg-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+  }
+}
+@media (max-width: 425px) {
+  .wg-middle-container,
+  .wg-left-container,
+  .wg-middle-message,
+  .keyboard-body {
+    width: 100%;
+  }
+  .wg-middle-container > ul {
+    gap: 0.6em;
+  }
+  .wg-middle-container > ul > li {
+    font-size: 2.45rem;
+  }
 }
