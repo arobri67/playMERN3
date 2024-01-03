@@ -94,7 +94,7 @@ footer > ul > li a:hover {
 @media (max-width: 1200px) {
   .container {
     width: 100%;
-    padding: 2em;
+    margin: 3em 0;
   }
 }
 @media (max-width: 768px) {
